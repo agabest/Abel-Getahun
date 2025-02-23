@@ -273,44 +273,6 @@ input[type="submit"]:disabled {
     color: #c62828;
     display: block;
 }
-
-/* Success Popup */
-.success-popup {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #e8f5e9;
-    color: #2e7d32;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transform: translateX(120%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 1000;
-}
-
-.success-popup.show {
-    transform: translateX(0);
-}
-
-.popup-content {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.popup-content svg {
-    width: 24px;
-    height: 24px;
-    fill: #2e7d32;
-}
-
-.popup-content p {
-    margin: 0;
-    font-weight: 500;
-}
-
-
 button[type="submit"] {
   background: #1abc9c;
   color: #fff;
