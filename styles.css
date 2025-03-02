@@ -13,9 +13,12 @@ body {
 
 /* Header Styles */
 header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: #333;
     color: #fff;
-    padding: 15px 0;
+    padding: 15px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -54,6 +57,22 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* About Me Section */
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profile-image {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.bio {
+    flex: 2;
+}
+
 /* Projects Grid */
 .projects-grid {
     display: flex;
@@ -80,6 +99,28 @@ h1 {
     width: 100%;
     height: auto;
     border-radius: 5px;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.skill-card {
+    flex: 1 1 calc(30% - 20px); /* Responsive flex basis */
+    margin: 10px;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.skill-card:hover {
+    transform: scale(1.05);
 }
 
 /* Pagination Styles */
