@@ -76,7 +76,7 @@ h1 {
 /* Projects Grid */
 .projects-grid {
     display: flex;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
     justify-content: none;
 }
 
