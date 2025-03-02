@@ -1,8 +1,9 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
 }
 
 .container {
@@ -14,7 +15,13 @@ body {
 header {
     background: #333;
     color: #fff;
-    padding: 10px 0;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .nav-links {
@@ -30,15 +37,21 @@ header {
 .nav-links a {
     color: #fff;
     text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff6347; /* Tomato color on hover */
 }
 
 /* Section Styles */
 .section {
-    padding: 20px 0;
+    padding: 40px 0;
 }
 
 h1 {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 /* Projects Grid */
@@ -51,10 +64,43 @@ h1 {
 .project-card {
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 10px;
+    padding: 15px;
     margin: 10px;
     width: calc(30% - 20px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+.project-card video {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Pagination Styles */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: none;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.pagination button:hover {
+    background: #0056b3;
 }
 
 /* Contact Form Styles */
@@ -70,12 +116,18 @@ form input, form textarea {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    transition: border 0.3s;
+}
+
+form input:focus, form textarea:focus {
+    border: 1px solid #007bff;
 }
 
 form input[type="submit"] {
     background: #007bff;
     color: white;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
 form input[type="submit"]:hover {
