@@ -94,18 +94,34 @@
     <section id="projects" class="section">
       <div class="container">
         <h1>Projects</h1>
-        <div class="projects-grid">
+<div class="projects-grid" id="projects-container">
+
           <div class="project-card">
-            <h3>Project 1</h3>
+          <h3>Project 1</h3>
+          <video controls>
+            <source src="path/to/video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+
             <p>A website for a wedding and custom made clothing company.</p>
             <a href="https://afombridal.com/#Home"> AFOM BRIDAL </a>
           </div>
           <div class="project-card">
-            <h3>Project 2</h3>
+          <h3>Project 2</h3>
+          <video controls>
+            <source src="path/to/video2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+
             <p>Coming soon!</p>
           </div>
           <div class="project-card">
-            <h3>Project 3</h3>
+          <h3>Project 3</h3>
+          <video controls>
+            <source src="path/to/video3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+
             <p>Coming soon!</p>
           </div>
         </div>
@@ -132,6 +148,25 @@
     </footer>
 
     <script type="text/javascript">
+        let currentPage = 1;
+        const itemsPerPage = 3;
+
+        function changePage(direction) {
+            currentPage += direction;
+            displayProjects();
+        }
+
+        function displayProjects() {
+            const projects = document.querySelectorAll('.project-card');
+            projects.forEach((project, index) => {
+                project.style.display = (Math.floor(index / itemsPerPage) + 1 === currentPage) ? 'block' : 'none';
+            });
+        }
+
+        window.onload = function() {
+            displayProjects();
+        };
+
         window.onload = function() {
             const form = document.getElementById('contact-form');
             const messageField = document.querySelector('textarea[name="message"]');
