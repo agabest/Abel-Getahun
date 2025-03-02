@@ -100,21 +100,13 @@ h1 {
     margin: 0 0 10px;
 }
 
+/* Video Styles */
 .project-card video {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-}
-
-
-.project-card:hover {
-    transform: scale(1.05);
-}
-
-.project-card video {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
+    width: 100%; /* Make video responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 10px; /* Space below the video */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
 }
 
 /* Skills Grid */
