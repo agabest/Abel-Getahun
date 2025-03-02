@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
-    <!-- <script type="text/javascript" src="script.js"></script> -->
-
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
@@ -15,8 +13,6 @@
             });
         })();
     </script>
-
-    
   </head>
   <body>
     <header>
@@ -41,7 +37,7 @@
         <h1>About Me</h1>
         <div class="about-content">
           <div class="profile-image">
-            <img src="profile-images\abelGetahun.jpeg" alt="Profile Picture" />
+            <img src="profile-images/abelGetahun.jpeg" alt="Profile Picture" />
           </div>
           <div class="bio">
             <p>
@@ -94,36 +90,36 @@
     <section id="projects" class="section">
       <div class="container">
         <h1>Projects</h1>
-<div class="projects-grid" id="projects-container">
-
-          <div class="project-card">
-          <h3>Project 1</h3>
-          <video controls>
-            <source src="path/to/video1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-
+        <div class="projects-grid" id="projects-container">
+          <div class="project-card" data-page="1">
+            <h3>Project 1</h3>
+            <video controls>
+              <source src="path/to/video1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
             <p>A website for a wedding and custom made clothing company.</p>
             <a href="https://afombridal.com/#Home"> AFOM BRIDAL </a>
           </div>
-          <div class="project-card">
-          <h3>Project 2</h3>
-          <video controls>
-            <source src="path/to/video2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-
+          <div class="project-card" data-page="1">
+            <h3>Project 2</h3>
+            <video controls>
+              <source src="path/to/video2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
             <p>Coming soon!</p>
           </div>
-          <div class="project-card">
-          <h3>Project 3</h3>
-          <video controls>
-            <source src="path/to/video3.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-
+          <div class="project-card" data-page="1">
+            <h3>Project 3</h3>
+            <video controls>
+              <source src="path/to/video3.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
             <p>Coming soon!</p>
           </div>
+        </div>
+        <div class="pagination">
+          <button id="prevBtn" onclick="changePage(-1)">Previous</button>
+          <button id="nextBtn" onclick="changePage(1)">Next</button>
         </div>
       </div>
     </section>
@@ -132,12 +128,12 @@
       <div class="container">
         <h1>Contact</h1>
         <form id="contact-form">
-        <input type="text" name="from_name" placeholder="Name" required>
-        <input type="email" name="user_email" placeholder="Email" required>
-        <textarea name="message" placeholder="Phone number and leave a message here" required></textarea>
-        <input type="submit" value="Send">
-        <div id="response-message"></div>
-    </form>
+          <input type="text" name="from_name" placeholder="Name" required>
+          <input type="email" name="user_email" placeholder="Email" required>
+          <textarea name="message" placeholder="Phone number and leave a message here" required></textarea>
+          <input type="submit" value="Send">
+          <div id="response-message"></div>
+        </form>
       </div>
     </section>
 
@@ -166,56 +162,6 @@
         window.onload = function() {
             displayProjects();
         };
-
-        window.onload = function() {
-            const form = document.getElementById('contact-form');
-            const messageField = document.querySelector('textarea[name="message"]');
-            const charCounter = document.createElement('div');
-            charCounter.className = 'char-counter';
-            messageField.parentNode.insertBefore(charCounter, messageField.nextSibling);
-
-            // Update character counter
-            messageField.addEventListener('input', function() {
-                const remaining = 500 - this.value.length;
-                charCounter.textContent = `${remaining} characters remaining`;
-                charCounter.style.color = remaining < 50 ? 'red' : '#666';
-            });
-
-            form.addEventListener('submit', function(event) {
-                event.preventDefault();
-                
-                // Show loading state
-                const submitBtn = form.querySelector('input[type="submit"]');
-                submitBtn.disabled = true;
-                submitBtn.value = 'Sending...';
-                
-                // Validate email format
-                const email = form.querySelector('input[type="email"]').value;
-                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                    document.getElementById('response-message').innerText = 'Please enter a valid email address.';
-                    document.getElementById('response-message').style.color = 'red';
-                    submitBtn.disabled = false;
-                    submitBtn.value = 'Send';
-                    return;
-                }
-
-                emailjs.sendForm('service_portfolio', 'template_eh4uzps', this)
-                    .then(() => {
-                        document.getElementById('response-message').innerText = 'Message sent successfully!';
-                        document.getElementById('response-message').style.color = 'green';
-                        form.reset();
-                        resp
-                        charCounter.textContent = '';
-                    }, (error) => {
-                        document.getElementById('response-message').innerText = 'Failed to send message. Please try again.';
-                        document.getElementById('response-message').style.color = 'red';
-                    })
-                    .finally(() => {
-                        submitBtn.disabled = false;
-                        submitBtn.value = 'Send';
-                    });
-            });
-        }
     </script>
   </body>
 </html>
