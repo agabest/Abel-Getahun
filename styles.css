@@ -222,6 +222,7 @@ input[type="email"]
 textarea{
   width: 100%;
   height: 51px;
+  margin-top: 10px;
   padding: 10px;
 }
 
@@ -376,7 +377,7 @@ footer {
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;
-    padding-right: 25px;
+    padding: 15px;
   }
 
   .nav-links {
@@ -406,5 +407,13 @@ footer {
   .profile-image img {
     width: 150px;
     height: 150px;
+  }
+  .logo{
+    display: none;
+  }
+  .bio p{
+    text-indent: 25px;
+    text-align: justify;
+    text-justify: inter-word;
   }
 }

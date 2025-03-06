@@ -14,6 +14,14 @@
               publicKey: "x33FIFUUsMhtrgdCt",
             });
         })();
+
+        // Toggle navigation links on menu toggle click
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+          navLinks.classList.toggle('active'); // Toggle the 'active' class to show/hide links
+        });
     </script>
   </head>
   <body>
@@ -127,14 +135,6 @@
         <input type="submit" value="Send">
         <div id="response-message"></div>
     </form>
-      </div>
-    </section>
-
-    <footer>
-      <div class="container">
-        <p>&copy; 2023 ABEL_AG. All rights reserved.</p>
-      </div>
-    </footer>
 
     <script type="text/javascript">
         window.onload = function() {
