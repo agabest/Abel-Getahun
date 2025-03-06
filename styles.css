@@ -35,6 +35,31 @@
   background-color: #16a085;
 }
 
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.btn {
+  background-color: #1abc9c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #16a085;
+}
+
 .social-media a img {
   width: 25px; /* Adjust size as needed */
   height: 25px; /* Adjust size as needed */
@@ -328,7 +353,8 @@ input[type="submit"]:disabled {
     display: block;
 }
 
-button[type="submit"] {
+button[type="submit"],
+.btn {
   background: #1abc9c;
   color: #fff;
   padding: 14px 28px;
@@ -343,6 +369,7 @@ button[type="submit"] {
   width: 100%;
   box-shadow: 0 4px 6px rgba(26, 188, 156, 0.2);
 }
+
 
 button[type="submit"]:hover {
   background: #16a085;
