@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init({
+              publicKey: "x33FIFUUsMhtrgdCt",
+            });
+        })();
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">ABEL GETAHUN</div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="social-media">
+          <a href="https://web.facebook.com/getahun.abel.9/" target="_blank"><img src="https://img.icons8.com/?size=100&id=118497&format=png&color=000000" alt="Facebook" /></a>
+          <a href="https://www.instagram.com/abel_ag_a/" target="_blank"><img src="https://img.icons8.com/?size=100&id=BrU2BBoRXiWq&format=png&color=000000" alt="Instagram" /></a>
+          <a href="https://t.me/abelgatalk" target="_blank"><img src="https://img.icons8.com/?size=100&id=63306&format=png&color=000000" alt="Telegram" /></a>
+          <a href="https://www.linkedin.com/in/abel-getahun-708810248/" target="_blank"><img src="https://img.icons8.com/?size=100&id=13930&format=png&color=000000" alt="LinkedIn" /></a>
+        </div>
+      </nav>
+    </header>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h1>About Me</h1>
+        <div class="about-content">
+          <div class="profile-image">
+            <img src="profile-images/abelGetahun.jpeg" alt="Profile Picture" />
+          </div>
+          <div class="bio">
+            <p>
+              Hello! I am Abel Getahun and a Computer Science graduate
+              passionate about full-stack development, AI, and open-source
+              innovation. With 2+ years of experience building scalable web apps
+              and contributing to impactful projects, I thrive on bridging
+              technology and real-world solutions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <h1>Skills</h1>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>Frontend</h3>
+            <ul>
+              <li>HTML5</li>
+              <li>CSS3</li>
+              <li>JavaScript</li>
+              <li>React</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Backend</h3>
+            <ul>
+              <li>Node.js</li>
+              <li>Express</li>
+              <li>MongoDB</li>
+              <li>REST APIs</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h3>Tools</h3>
+            <ul>
+              <li>Git</li>
+              <li>Webpack</li>
+              <li>Docker</li>
+              <li>CI/CD</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h1>Projects</h1>
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>Project 1</h3>
+            <p>A website for a wedding and custom made clothing company.</p>
+            <a href="https://afombridal.com/#Home"> AFOM BRIDAL </a>
+          </div>
+          <div class="project-card">
+            <h3>Project 2</h3>
+            <p>Coming soon!</p>
+          </div>
+          <div class="project-card">
+            <h3>Project 3</h3>
+            <p>Coming soon!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h1>Contact</h1>
+        <form id="contact-form">
+        <input type="text" name="from_name" placeholder="Name" required>
+        <input type="email" name="user_email" placeholder="Email" required>
+        <textarea name="message" placeholder="Phone number and leave a message here" required></textarea>
+        <input type="submit" value="Send">
+        <div id="response-message"></div>
+    </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2023 ABEL_AG. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script type="text/javascript">
+        window.onload = function() {
+            const form = document.getElementById('contact-form');
+            const messageField = document.querySelector('textarea[name="message"]');
+            const charCounter = document.createElement('div');
+            charCounter.className = 'char-counter';
+            messageField.parentNode.insertBefore(charCounter, messageField.nextSibling);
+
+            // Update character counter
+            messageField.addEventListener('input', function() {
+                const remaining = 500 - this.value.length;
+                charCounter.textContent = `${remaining} characters remaining`;
+                charCounter.style.color = remaining < 50 ? 'red' : '#666';
+            });
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Show loading state
+                const submitBtn = form.querySelector('input[type="submit"]');
+                submitBtn.disabled = true;
+                submitBtn.value = 'Sending...';
+                
+                // Validate email format
+                const email = form.querySelector('input[type="email"]').value;
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    document.getElementById('response-message').innerText = 'Please enter a valid email address.';
+                    document.getElementById('response-message').style.color = 'red';
+                    submitBtn.disabled = false;
+                    submitBtn.value = 'Send';
+                    return;
+                }
+
+                emailjs.sendForm('service_portfolio', 'template_eh4uzps', this)
+                    .then(() => {
+                        document.getElementById('response-message').innerText = 'Message sent successfully!';
+                        document.getElementById('response-message').style.color = 'green';
+                        form.reset();
+                        charCounter.textContent = '';
+                    }, (error) => {
+                        document.getElementById('response-message').innerText = 'Failed to send message. Please try again.';
+                        document.getElementById('response-message').style.color = 'red';
+                    })
+                    .finally(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.value = 'Send';
+                    });
+            });
+        }
+    </script>
+  </body>
+</html>
