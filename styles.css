@@ -90,11 +90,13 @@ nav {
 .nav-links {
   list-style: none;
   display: flex;
+  justify-content: center;
+  width: 50%;
   margin: 0 auto;
 }
 
 .nav-links li {
-  margin-left: 20px;
+ margin: 0 20px;
 }
 
 .nav-links a {
@@ -103,9 +105,11 @@ nav {
   transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,.nav-links  li:hover {
   color: #1abc9c;
   background-color: #293746;
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
 
 .menu-toggle {
