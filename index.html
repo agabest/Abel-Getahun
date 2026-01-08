@@ -27,7 +27,7 @@
   <body>
     <header>
       <nav>
-        <div class="logo"><a href="#about">ABEL GETAHUN</a></div>
+        <div class="logo"><a href="#about">PORTFOLIO</a></div>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
@@ -61,7 +61,7 @@
             <p>
               Hello! I am Abel Getahun and a Computer Science graduate
               passionate about full-stack development, AI, and open-source
-              innovation. With 2+ years of experience building scalable web apps
+              innovation. With 3+ years of experience building scalable web apps
               and contributing to impactful projects, I thrive on bridging
               technology and real-world solutions.
             </p>
@@ -74,7 +74,7 @@
       <div class="container">
         <h1>Skills</h1>
         <div class="skills-grid">
-          <div class="skill-card">
+          <div class="skill-card-animated-card">
             <h3>Frontend</h3>
             <ul>
               <li>HTML5</li>
@@ -83,19 +83,43 @@
               <li>React</li>
             </ul>
           </div>
-          <div class="skill-card">
+          <div class="skill-card-animated-card">
             <h3>Backend</h3>
             <ul>
               <li>Node.js</li>
               <li>django</li>
             </ul>
           </div>
-          <div class="skill-card">
+          <div class="skill-card-animated-card">
             <h3>Others</h3>
             <ul>
               <li>machine operator</li>
               <li>digital marketing</li>
               <li>Data analysis</li>
+            </ul>
+          </div>
+          <div class="skill-card-animated-card">
+            <h3>Cybersecurity</h3>
+            <ul>
+              <li>Network Security</li>
+              <li>Ethical Hacking</li>
+              <li>Data Protection</li>
+            </ul>
+          </div>
+          <div class="skill-card-animated-card">
+            <h3>CCTV</h3>
+            <ul>
+              <li>Surveillance Systems</li>
+              <li>Camera Installation</li>
+              <li>Monitoring Software</li>
+            </ul>
+          </div>
+          <div class="skill-card-animated-card">
+            <h3>Web Development</h3>
+            <ul>
+              <li>Full-Stack Development</li>
+              <li>Responsive Design</li>
+              <li>API Integration</li>
             </ul>
           </div>
         </div>
@@ -106,20 +130,39 @@
       <div class="container">
         <h1>Projects</h1>
         <div class="projects-grid">
-          <div class="project-card">
+          <div class="project-animated-card" >
             <h3>Project 1: AFOM BRIDAL</h3>
+            <p>A website for a wedding and custom-made clothing company. Visit</p>
 
-            <p>A website for a wedding and custom-made clothing company. Visit <a href="https://afombridal.com/#Home">AFOM BRIDAL</a> to learn more.</p>
-
-            <a href="https://afombridal.com/#Home"> AFOM BRIDAL </a>
+            <a href="https://afombridal.com/#Home" style="text-decoration: none;"target="_blank"> AFOM BRIDAL </a>
           </div>
-          <div class="project-card">
-            <h3>Project 2</h3>
+          <div class="project-animated-card">
+            <h3>Project 2 BIG AUTO spare parts</h3>
             <p>Coming soon!</p>
           </div>
-          <div class="project-card">
+          <div class="project-animated-card">
             <h3>Project 3</h3>
             <p>Coming soon!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section">
+      <div class="container">
+        <h1>STEM Gallery</h1>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="profile-images\photo_2026-01-02_09-56-10.jpg " style="height: 594px; width: 350px;" alt="Coding" />
+          </div>
+          <div class="gallery-item">
+            <img src="profile-images\photo_2026-01-02_09-56-17.jpg" alt="Science Experiment" />
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400" alt="AI and Machine Learning" />
+          </div>
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400" alt="Cybersecurity" />
           </div>
         </div>
       </div>
@@ -183,6 +226,36 @@
                         submitBtn.disabled = false;
                         submitBtn.value = 'Send';
                     });
+            });
+
+            // Add specific STEM image backgrounds to skill cards based on their content
+            const skillCards = document.querySelectorAll('.skill-card-animated-card');
+
+            skillCards.forEach(card => {
+              const title = card.querySelector('h3').textContent.toLowerCase();
+              let imageUrl = '';
+
+              if (title.includes('frontend')) {
+                imageUrl = 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=400'; // coding
+              } else if (title.includes('backend')) {
+                imageUrl = 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400'; // code matrix
+              } else if (title.includes('cybersecurity')) {
+                imageUrl = 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400'; // security/lock
+              } else if (title.includes('cctv')) {
+                imageUrl = 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400'; // surveillance/camera
+              } else if (title.includes('web development')) {
+                imageUrl = 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400'; // web development
+              } else if (title.includes('others')) {
+                imageUrl = 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400'; // general tech
+              }
+
+              if (imageUrl) {
+                card.style.backgroundImage = `url(${imageUrl})`;
+                card.style.backgroundSize = 'cover';
+                card.style.backgroundPosition = 'center';
+                card.style.color = 'white'; // to make text visible
+                card.querySelector('h3').style.textShadow = '2px 2px 4px rgba(0,0,0,0.5)'; // add text shadow for visibility
+              }
             });
         }
     </script>
